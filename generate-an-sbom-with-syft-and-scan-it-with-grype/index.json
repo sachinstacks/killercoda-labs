@@ -1,0 +1,20 @@
+{
+  "title": "Generate an SBOM with Syft and Scan It with Grype",
+  "description": "Produce CycloneDX and SPDX bills of materials for a container image, scan the SBOM with Grype, gate on fixable findings only, and compare the SBOM scan with a direct image scan.",
+  "details": {
+    "intro": {
+      "title": "Introduction",
+      "text": "intro.md",
+      "foreground": "foreground.sh",
+      "background": "background.sh"
+    },
+    "steps": [
+      { "title": "Step 1: generate the SBOM in two formats", "text": "step1.md", "verify": "verify1.sh" },
+      { "title": "Step 2: scan the SBOM with Grype", "text": "step2.md", "verify": "verify2.sh" },
+      { "title": "Step 3: a gate that fails on what you can fix", "text": "step3.md", "verify": "verify3.sh" },
+      { "title": "Step 4: compare with a direct image scan", "text": "step4.md", "verify": "verify4.sh" }
+    ],
+    "finish": { "title": "Finish", "text": "finish.md" }
+  },
+  "backend": { "imageid": "ubuntu-4GB" }
+}

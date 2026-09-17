@@ -1,0 +1,21 @@
+{
+  "title": "Least-Privilege Kubernetes RBAC for a Deployer Service Account",
+  "description": "Create a service account that can roll out Deployments in one namespace and nothing else, prove the boundary with impersonation and a real short-lived token, and audit the cluster for wildcard roles and anonymous access.",
+  "details": {
+    "intro": {
+      "title": "Introduction",
+      "text": "intro.md",
+      "foreground": "foreground.sh",
+      "background": "background.sh"
+    },
+    "steps": [
+      { "title": "Step 1: the identity, the role, the binding", "text": "step1.md", "verify": "verify1.sh" },
+      { "title": "Step 2: prove the boundary with impersonation", "text": "step2.md", "verify": "verify2.sh" },
+      { "title": "Step 3: a real token, in a kubeconfig that has nothing else", "text": "step3.md", "verify": "verify3.sh" },
+      { "title": "Step 4: try to break out", "text": "step4.md", "verify": "verify4.sh" },
+      { "title": "Step 5: audit the cluster you already have", "text": "step5.md", "verify": "verify5.sh" }
+    ],
+    "finish": { "title": "Finish", "text": "finish.md" }
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-1node" }
+}

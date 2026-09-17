@@ -1,0 +1,22 @@
+{
+  "title": "Scan Git Repositories with Gitleaks",
+  "description": "Seed a repository with realistic fake secrets, catch them with Gitleaks in history and working-tree modes, ignore a confirmed false positive by fingerprint, and block the next one at commit time.",
+  "details": {
+    "intro": {
+      "title": "Introduction",
+      "text": "intro.md",
+      "foreground": "foreground.sh",
+      "background": "background.sh"
+    },
+    "steps": [
+      { "title": "Step 1: scan history", "text": "step1.md", "verify": "verify1.sh" },
+      { "title": "Step 2: scan the working tree", "text": "step2.md", "verify": "verify2.sh" },
+      { "title": "Step 3: report formats", "text": "step3.md", "verify": "verify3.sh" },
+      { "title": "Step 4: suppress one confirmed false positive", "text": "step4.md", "verify": "verify4.sh" },
+      { "title": "Step 5: scan only new commits", "text": "step5.md", "verify": "verify5.sh" },
+      { "title": "Step 6: block the next leak at commit time", "text": "step6.md", "verify": "verify6.sh" }
+    ],
+    "finish": { "title": "Finish", "text": "finish.md" }
+  },
+  "backend": { "imageid": "ubuntu" }
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Secure Docker Images with Trivy",
+  "description": "Scan a deliberately weak image and rebuild it until the gate for fixable HIGH and CRITICAL findings passes: current base, non-root user, patched packages, no pip in the runtime image.",
+  "details": {
+    "intro": {
+      "title": "Introduction",
+      "text": "intro.md",
+      "foreground": "foreground.sh",
+      "background": "background.sh"
+    },
+    "steps": [
+      { "title": "Step 1: build the weak image", "text": "step1.md", "verify": "verify1.sh" },
+      { "title": "Step 2: scan it, then count what matters", "text": "step2.md", "verify": "verify2.sh" },
+      { "title": "Step 3: current base, non-root user", "text": "step3.md", "verify": "verify3.sh" },
+      { "title": "Step 4: patch the OS", "text": "step4.md", "verify": "verify4.sh" },
+      { "title": "Step 5: remove what the runtime does not need", "text": "step5.md", "verify": "verify5.sh" }
+    ],
+    "finish": { "title": "Finish", "text": "finish.md" }
+  },
+  "backend": { "imageid": "ubuntu" }
+}

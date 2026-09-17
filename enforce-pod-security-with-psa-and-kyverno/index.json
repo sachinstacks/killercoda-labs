@@ -1,0 +1,21 @@
+{
+  "title": "Enforce Pod Security with Pod Security Admission and Kyverno",
+  "description": "Turn on the restricted Pod Security profile for a namespace, watch it reject a default pod, then add a Kyverno ValidatingPolicy in Audit mode, read the PolicyReport, and switch it to Deny.",
+  "details": {
+    "intro": {
+      "title": "Introduction",
+      "text": "intro.md",
+      "foreground": "foreground.sh",
+      "background": "background.sh"
+    },
+    "steps": [
+      { "title": "Step 1: label the namespace, reject a default pod", "text": "step1.md", "verify": "verify1.sh" },
+      { "title": "Step 2: a pod that satisfies restricted", "text": "step2.md", "verify": "verify2.sh" },
+      { "title": "Step 3: Kyverno is running", "text": "step3.md", "verify": "verify3.sh" },
+      { "title": "Step 4: a rule Pod Security cannot express, in Audit mode", "text": "step4.md", "verify": "verify4.sh" },
+      { "title": "Step 5: switch to Deny", "text": "step5.md", "verify": "verify5.sh" }
+    ],
+    "finish": { "title": "Finish", "text": "finish.md" }
+  },
+  "backend": { "imageid": "kubernetes-kubeadm-1node-4GB" }
+}
