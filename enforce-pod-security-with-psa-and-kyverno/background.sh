@@ -12,7 +12,7 @@ if ! command -v jq >/dev/null 2>&1; then
     || { curl -sSfL -o /usr/local/bin/jq https://github.com/jqlang/jq/releases/latest/download/jq-linux-amd64 && chmod +x /usr/local/bin/jq; }
 fi
 if ! command -v helm >/dev/null 2>&1; then
-  for i in 1 2 3; do curl -sSfL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash && break; sleep 5; done
+  for _ in 1 2 3; do curl -sSfL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash && break; sleep 5; done
 fi
 
 for _ in $(seq 1 60); do kubectl get --raw /readyz >/dev/null 2>&1 && break; sleep 2; done

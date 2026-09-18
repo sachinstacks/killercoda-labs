@@ -14,10 +14,11 @@ install_jq() {
   apt-get update -qq && apt-get install -y -qq jq >/dev/null 2>&1 && return 0
   curl -sSfL -o /usr/local/bin/jq https://github.com/jqlang/jq/releases/latest/download/jq-linux-amd64 && chmod +x /usr/local/bin/jq
 }
-install_tool() { # name version
+install_tool() { # name version: the release tarball, straight from GitHub
   command -v "$1" >/dev/null 2>&1 && return 0
-  for i in 1 2 3; do
-    curl -sSfL "https://raw.githubusercontent.com/anchore/$1/main/install.sh" | sh -s -- -b /usr/local/bin "v$2" && return 0
+  for _ in 1 2 3; do
+    curl -sSfL "https://github.com/anchore/$1/releases/download/v$2/$1_$2_linux_amd64.tar.gz" \
+      | tar -xz -C /usr/local/bin "$1" && chmod +x "/usr/local/bin/$1" && return 0
     sleep 5
   done
   return 1

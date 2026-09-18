@@ -14,7 +14,7 @@ install_jq() {
 }
 install_gitleaks() {
   command -v gitleaks >/dev/null 2>&1 && return 0
-  for i in 1 2 3; do
+  for _ in 1 2 3; do
     curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" \
       | tar -xz -C /usr/local/bin gitleaks && chmod +x /usr/local/bin/gitleaks && return 0
     sleep 5
