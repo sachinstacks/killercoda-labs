@@ -3,7 +3,9 @@
 # application fixture. It never builds or scans the lab images; that is the task.
 set -x
 export DEBIAN_FRONTEND=noninteractive
-TRIVY_VERSION=0.68.2
+# The lab was verified with Trivy 0.68.2; that release has since been withdrawn
+# from GitHub (only v0.69.2+ remain), so the current release is installed.
+TRIVY_VERSION=0.74.0
 LAB=/root/labs/trivy
 mkdir -p "$LAB"
 

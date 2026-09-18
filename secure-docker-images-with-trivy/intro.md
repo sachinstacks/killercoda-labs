@@ -11,7 +11,8 @@ The exact numbers depend on the day's vulnerability database. The reference run 
 
 ## What is being prepared
 
-While you read this, a background script installs Trivy 0.68.2 and `jq`, downloads the vulnerability database
+While you read this, a background script installs Trivy 0.74.0 (the original lab was verified with 0.68.2, whose
+release has since been withdrawn from GitHub; the commands are identical) and `jq`, downloads the vulnerability database
 once (it is several hundred MB, which is why it is done for you) and pulls the two base images. The terminal
 tells you when it is done.
 
