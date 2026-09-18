@@ -16,9 +16,9 @@ install_jq() {
 }
 install_trivy() {
   command -v trivy >/dev/null 2>&1 && return 0
-  for i in 1 2 3; do
-    curl -sSfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh \
-      | sh -s -- -b /usr/local/bin "v${TRIVY_VERSION}" && return 0
+  for _ in 1 2 3; do
+    curl -sSfL "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz" \
+      | tar -xz -C /usr/local/bin trivy && chmod +x /usr/local/bin/trivy && return 0
     sleep 5
   done
   return 1
