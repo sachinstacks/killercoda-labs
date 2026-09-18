@@ -3,8 +3,12 @@
 Scan the CycloneDX document, not the image, and keep the JSON result:
 
 ```plain
-cd /root/labs/sbom
-grype sbom:./py311.cdx.json -o json --file grype-py311.json
+cd /root/labs/sbom && grype sbom:./py311.cdx.json -o json --file grype-py311.json
+```{{exec}}
+
+Then count what it found:
+
+```plain
 jq '.matches | length' grype-py311.json
 jq -r '[.matches[].vulnerability.severity] | group_by(.) | map("\(.[0]): \(length)") | join(", ")' grype-py311.json
 ```{{exec}}

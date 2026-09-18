@@ -3,10 +3,18 @@
 `--only-fixed` is Grype's equivalent of Trivy's `--ignore-unfixed`; `--fail-on high` makes the process exit
 non-zero when any remaining finding is High or above. Record both exit codes in `gate.txt`:
 
+Run the two gates one after the other (Grype's progress display takes over the terminal while it runs, so each
+is its own command):
+
 ```plain
-cd /root/labs/sbom
-grype sbom:./py311.cdx.json --only-fixed --fail-on critical -q; echo "critical=$?" | tee gate.txt
-grype sbom:./py311.cdx.json --only-fixed --fail-on high -q;     echo "high=$?"     | tee -a gate.txt
+cd /root/labs/sbom && grype sbom:./py311.cdx.json --only-fixed --fail-on critical -q; echo "critical=$?" | tee gate.txt
+```{{exec}}
+
+```plain
+grype sbom:./py311.cdx.json --only-fixed --fail-on high -q; echo "high=$?" | tee -a gate.txt
+```{{exec}}
+
+```plain
 cat gate.txt
 ```{{exec}}
 
@@ -20,7 +28,7 @@ same either way.
 <details><summary>Solution</summary>
 
 ```plain
-cd /root/labs/sbom && grype sbom:./py311.cdx.json --only-fixed --fail-on critical -q; echo "critical=$?" > gate.txt; grype sbom:./py311.cdx.json --only-fixed --fail-on high -q; echo "high=$?" >> gate.txt; cat gate.txt
+cd /root/labs/sbom && grype sbom:./py311.cdx.json --only-fixed --fail-on critical -q >/dev/null 2>&1; echo "critical=$?" > gate.txt; grype sbom:./py311.cdx.json --only-fixed --fail-on high -q >/dev/null 2>&1; echo "high=$?" >> gate.txt; cat gate.txt
 ```{{exec}}
 
 </details>

@@ -3,8 +3,10 @@
 Scan the image itself and compare the match counts:
 
 ```plain
-cd /root/labs/sbom
-grype registry:python:3.11-slim-bookworm -o json --file grype-direct.json
+cd /root/labs/sbom && grype registry:python:3.11-slim-bookworm -o json --file grype-direct.json
+```{{exec}}
+
+```plain
 jq '.matches | length' grype-direct.json grype-py311.json
 ```{{exec}}
 
