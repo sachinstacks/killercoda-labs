@@ -4,7 +4,7 @@ echo "This takes a minute or two. Read the introduction on the left meanwhile."
 while [ ! -f /tmp/.lab-ready ]; do sleep 2; done
 cd /root/labs/trivy
 PS1="[sachinstacks@trivy \W]# "
-sachinstacks-banner "Secure Docker Images with Trivy" 2>/dev/null || echo "SachinStacks lab: Secure Docker Images with Trivy - sachinchaurasiya.com - Environment hosted on Killercoda"
+sachinstacks-banner "Secure Docker Images with Trivy" 2>/dev/null
 if command -v trivy >/dev/null 2>&1; then
   echo "Ready. Trivy $(trivy --version 2>/dev/null | head -1 | awk '{print $2}') is installed, the database is cached, and you are in /root/labs/trivy."
 else
