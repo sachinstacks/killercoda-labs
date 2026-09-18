@@ -3,5 +3,5 @@ echo "Preparing the environment: Gitleaks, jq and a repository seeded with fake 
 while [ ! -f /tmp/.lab-ready ]; do sleep 2; done
 cd /root/labs/gitleaks
 PS1="[sachinstacks@gitleaks \W]# "
-sachinstacks-banner "Scan Git Repositories with Gitleaks" 2>/dev/null
+type sachinstacks_lab_hook >/dev/null 2>&1 || sachinstacks-banner "Scan Git Repositories with Gitleaks" 2>/dev/null
 echo "Ready. $(gitleaks version 2>/dev/null | head -1 | sed 's/^/Gitleaks /') is installed and you are in /root/labs/gitleaks (3 commits)."

@@ -3,6 +3,6 @@ echo "Waiting for the cluster, jq and Helm. Kyverno is being installed in the ba
 while [ ! -f /tmp/.lab-ready ]; do sleep 2; done
 cd /root/labs/policy
 PS1="[sachinstacks@policy \W]# "
-sachinstacks-banner "Enforce Pod Security with PSA and Kyverno" 2>/dev/null
+type sachinstacks_lab_hook >/dev/null 2>&1 || sachinstacks-banner "Enforce Pod Security with PSA and Kyverno" 2>/dev/null
 kubectl get nodes
 echo "Ready. Pod Security Admission is built into this cluster; the working directory is /root/labs/policy."
