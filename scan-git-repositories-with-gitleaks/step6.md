@@ -13,7 +13,7 @@ gitleaks git --pre-commit --staged --redact --no-banner .
 Expected: `no leaks found` (all-`a` strings have no entropy).
 
 ```plain
-printf 'GITHUB_TOKEN = "ghp_%s"\n' "$(LC_ALL=C tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 36)" > token.py
+printf 'GITHUB_TOKEN = "ghp_%s"\n' "$(LC_ALL=C tr -dc 'A-Za-z0-9' < /dev/urandom 2>/dev/null | head -c 36)" > token.py
 git add token.py
 gitleaks git --pre-commit --staged --redact --verbose --no-banner .
 ```{{exec}}
